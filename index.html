@@ -9,16 +9,29 @@
         <script type="text/jsx">
             const app = document.getElementById('app');
 
-            function Header(props) {
-                console.log(props);
-                return <h1>Develop. Preview. Ship.</h1>;
+            function Header({title}) {
+                return <h1>{`${title}`}</h1>;
             }
             
             function Homepage() {
+                const names = ['John', 'Paul', 'George', 'Ringo'];
+
+                function handleClick() {
+                    console.log('Like');
+                    setLikes(likes + 1);
+                }
+
+                const [ likes, setLikes ] = React.useState(0);
+
                 return (
                     <div>
-                        {/* Nesting the Header component */}
-                        <Header title="React" />
+                        <Header title="Develop. Preview. Ship." />
+                        <ul>
+                            {names.map((name) => (
+                                <li key={name}>{name}</li>
+                            ))}
+                        </ul>
+                        <button onClick={handleClick}>Like {likes}</button>
                     </div>
                 );
             }
