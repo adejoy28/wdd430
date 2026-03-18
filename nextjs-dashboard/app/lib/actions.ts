@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import postgres from 'postgres';
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+const sql = postgres(process.env.prod_POSTGRES_URL!, { ssl: 'require' });
 
 
 const FormSchema = z.object({
