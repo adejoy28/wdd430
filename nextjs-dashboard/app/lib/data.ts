@@ -165,8 +165,9 @@ export async function fetchInvoiceById(id: string) {
     console.log(invoice); // Invoice is an empty array []s
     return invoice[0];
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch invoice.');
+    console.error('Database Error:', error); // ← this logs to terminal, that's all
+    return null; // ← execution continues, null is returned
+    // throw new Error('Failed to fetch invoice.');
   }
 }
 
