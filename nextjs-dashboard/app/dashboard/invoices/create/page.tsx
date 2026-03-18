@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     title: 'Create Invoice',  // renders as "Create Invoice | Acme Dashboard"
 };
 
+export const dynamic = 'force-dynamic'; // ← add this
+
 export default async function Page() {
     const customers = await fetchCustomers();
 
